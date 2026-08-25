@@ -6,7 +6,7 @@
 // ─── CONFIG — isi setelah launch BLOCKFARM di ponsfamily ───────────────────
 const CONFIG = {
   BLOCKFARM_CA: '0x5131F946C67110d3d0f1F211FC70dB33FF6eecf0',
-  DISTRIBUTOR_CA: null,   // ← isi CA FeeDistributor setelah deploy
+  DISTRIBUTOR_CA: '0xa0f34Ac0E5398Dd5e93FaA90f56559296f34B415',
   BUY_URL: 'https://www.ponsfamily.com/launchpad/0x5131F946C67110d3d0f1F211FC70dB33FF6eecf0',
   PONS_CA: '0x39dBED3a2bd333467115dE45665cC57F813C4571',
 };
@@ -76,6 +76,24 @@ function renderCA() {
     caEl.textContent = '0x… published at launch';
     btn.href = 'https://www.ponsfamily.com/launchpad/0x5131F946C67110d3d0f1F211FC70dB33FF6eecf0';
     btn.textContent = 'BUY NOW ↗';
+  }
+
+  // fee distributor
+  const distRow = $('dist-row');
+  const distEl = $('bf-dist');
+  if (distRow && distEl && CONFIG.DISTRIBUTOR_CA) {
+    distEl.textContent = CONFIG.DISTRIBUTOR_CA;
+    distRow.hidden = false;
+    const distCopy = $('copy-dist');
+    if (distCopy) {
+      distCopy.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(CONFIG.DISTRIBUTOR_CA);
+          distCopy.textContent = '✓ Copied';
+          setTimeout(() => { distCopy.textContent = 'Copy'; }, 1500);
+        } catch { /* clipboard blocked */ }
+      });
+    }
   }
 
   // copy CA
