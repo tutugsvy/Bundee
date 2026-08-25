@@ -53,7 +53,7 @@ export default function FeeShare({ account }) {
     <section className="pool" id="pool">
       <div className="pool-head">
         <h2 className="pool-title"><span className="pool-mark">◆</span> FEE SHARING</h2>
-        <span className="pool-status live">● LIVE</span>
+        <span className="pool-status live"><span className="pulse-dot" /> LIVE</span>
       </div>
 
       <div className="pool-grid">

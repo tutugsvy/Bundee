@@ -1,15 +1,14 @@
-// ─── BLOCKFARM · App — hold-to-earn fee-sharing dashboard ──────────────────
+// ─── BLOCKFARM · App — v2 "GPU FARM" redesign ──────────────────────────────
 // Hold BLOCKFARM → ponsfamily launchpad shares 100% creator fees to holders,
 // pro-rata, automatically. Wallet connect shows YOUR real share of the pool.
+// Design: 100% different from PONSMINER — solid Robinhood green, GPU rig hero.
 import { useEffect, useState } from 'react';
 import './dashboard.css';
-import logoUrl from './assets/logo-v2.jpg';
 import { TOKEN, TARGET_CHAIN_ID, NETWORK_NAME } from './game/config.js';
 import { hasInjectedWallet, connectInjected, onAccountsChanged, onChainChanged } from './game/wallet.js';
-import TickerTape from './components/TickerTape.jsx';
+import GpuVisual from './components/GpuVisual.jsx';
 import FeeShare from './components/FeeShare.jsx';
 import HowItWorks from './components/HowItWorks.jsx';
-import PoolVisual from './components/PoolVisual.jsx';
 
 const SHORT = a => (a ? `${a.slice(0, 6)}…${a.slice(-4)}` : null);
 
@@ -42,48 +41,42 @@ export default function App() {
 
   return (
     <div className="app">
-      <TickerTape />
-
-      {/* ── header ── */}
-      <header className="hd">
-        <div className="hd-brand">
-          <img src={logoUrl} alt="BLOCKFARM" className="hd-logo" />
-          <span className="hd-name">BLOCKFARM</span>
+      {/* ── floating pill topbar ── */}
+      <header className="topbar">
+        <div className="topbar-brand">
+          <span className="bf-logo" aria-hidden="true"><i /><i /><i /></span>
+          <span className="topbar-name">BLOCKFARM</span>
         </div>
-        <div className="hd-right">
-          <span className="hd-chain">
-            <span className="hd-dot" /> {NETWORK_NAME} · {TARGET_CHAIN_ID}
-          </span>
+        <div className="topbar-right">
+          <span className="topbar-chain"><span className="topbar-dot" /> {NETWORK_NAME} · {TARGET_CHAIN_ID}</span>
           {account ? (
-            <button className="hd-wallet connected" onClick={() => setAccount(null)}>
+            <button className="btn-wallet connected" onClick={() => setAccount(null)}>
               {SHORT(account)}
             </button>
           ) : (
-            <button className="hd-wallet" onClick={connect} disabled={busy}>
-              {busy ? 'CONNECTING…' : '⚡ CONNECT WALLET'}
+            <button className="btn-wallet" onClick={connect} disabled={busy}>
+              {busy ? 'CONNECTING…' : 'CONNECT WALLET'}
             </button>
           )}
         </div>
       </header>
 
-      {/* ── hero ── */}
+      {/* ── hero: giant type + GPU rig ── */}
       <main className="hero">
         <div className="hero-copy">
           <div className="hero-kicker">
-            <span className="hero-live">● HOLD TO EARN</span>
-            <span>ROBINHOOD CHAIN · 4663</span>
+            <span className="hero-live"><span className="hero-live-dot" /> HOLD TO EARN</span>
+            <span className="hero-chain">ROBINHOOD CHAIN · 4663</span>
           </div>
-          <h1 className="hero-title">
-            PLANT<span className="hero-dim">.</span> GROW<span className="hero-dim">.</span><br />
-            <span className="hero-accent">EARN</span>
-          </h1>
+          <h1 className="hero-title">BLOCK<span>FARM</span></h1>
+          <p className="hero-tag">MINE BLOCKS. <b>HOLD.</b> EARN FEES.</p>
           <p className="hero-sub">
             Hold {TOKEN.symbol} and every trade pays you — <b>100% of creator fees
             shared to holders</b>, pro-rata, automatically. No claim needed.
           </p>
           <div className="hero-cta">
-            <a className="hero-btn primary" href="#pool">VIEW FEE SHARING</a>
-            <a className="hero-btn" href={TOKEN.launchpadUrl} target="_blank" rel="noopener noreferrer">
+            <a className="btn primary" href="#pool">VIEW FEE SHARING</a>
+            <a className="btn ghost" href={TOKEN.launchpadUrl} target="_blank" rel="noopener noreferrer">
               TRADE {TOKEN.symbol} ↗
             </a>
           </div>
@@ -96,14 +89,18 @@ export default function App() {
         </div>
 
         <div className="hero-visual">
-          <PoolVisual />
-          <div className="hero-viz-label">
-            <span className="hero-viz-dot" /> SWAPS IN · HOLDERS EARN
-          </div>
+          <GpuVisual />
         </div>
       </main>
 
       {err && <div className="app-err">{err}</div>}
+
+      {/* ── stats band ── */}
+      <section className="stats">
+        <div className="stat"><span className="stat-n">100%</span><span className="stat-l">CREATOR FEES → HOLDERS</span></div>
+        <div className="stat"><span className="stat-n">PRO-RATA</span><span className="stat-l">BALANCE ÷ SUPPLY</span></div>
+        <div className="stat"><span className="stat-n">AUTO</span><span className="stat-l">PUSHED · NO CLAIM</span></div>
+      </section>
 
       {/* ── fee sharing ── */}
       <FeeShare account={account} />
@@ -113,10 +110,8 @@ export default function App() {
 
       {/* ── footer ── */}
       <footer className="ft">
-        <p className="ft-note">
-          {TOKEN.symbol} launched on ponsfamily.
-        </p>
-        <p className="ft-brand">BLOCKFARM · PLANT · GROW · EARN · ROBINHOOD CHAIN {TARGET_CHAIN_ID}</p>
+        <p className="ft-note">{TOKEN.symbol} launched on ponsfamily.</p>
+        <p className="ft-brand">BLOCKFARM · MINE · HOLD · EARN · ROBINHOOD CHAIN {TARGET_CHAIN_ID}</p>
       </footer>
     </div>
   );
