@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "framework": null,
+  "buildCommand": "echo 'static site — no build step'",
+  "outputDirectory": ".",
+  "cleanUrls": false
+}
