@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mechanism — BLOCKFARM</title>
+  <meta name="description" content="How BLOCKFARM works: fees buy back PONS, distributed to holders pro-rata." />
+  <link rel="icon" type="image/png" href="assets/blockfarm-logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html">
+      <img src="assets/blockfarm-logo.jpg" alt="BLOCKFARM logo" />
+      BLOCKFARM
+    </a>
+    <a href="mechanism.html">Mechanism</a>
+    <a href="receipts.html">Receipts</a>
+    <span class="spacer"></span>
+    <a class="nav-cta" href="receipts.html#status">Get $BLOCKFARM</a>
+  </nav>
+
+  <main class="page">
+    <h1>Mechanism</h1>
+    <p class="lead">Three moves, and none of them need Pons to say yes.</p>
+
+    <div class="step">
+      <span class="num">01</span>
+      <div>
+        <h2>The fee gets pointed away from us</h2>
+        <p>
+          A Pons launch nominates one address for the creator's share of trading
+          fees. <b>BLOCKFARM nominates the distributor</b> instead of a founder
+          wallet, and takes <b>1%</b> — a tenth of what the factory would allow,
+          because a tax that size would kill the volume the buyback is made of.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="num">02</span>
+      <div>
+        <h2>ETH becomes PONS</h2>
+        <p>
+          The fee lands in Pons' escrow as ETH once their sweeper runs. From there
+          anyone can call <b>distribute()</b>: the vault claims its balance, swaps
+          it on Uniswap v4 — that is the <b>buyback</b> — and the PONS is sent to
+          the distributor pool.
+        </p>
+        <p><b>ETH → v4 → PONS</b></p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="num">03</span>
+      <div>
+        <h2>It books to your balance</h2>
+        <p>
+          Each distribution raises a PONS-per-token accumulator. Your claim is
+          your BLOCKFARM balance times the accumulator, minus what you already
+          took. Sell, and the meter stops.
+        </p>
+        <p><b>hold → claim PONS</b></p>
+      </div>
+    </div>
+
+    <div class="whynot">
+      <h2>Why not just use the switch Pons ships</h2>
+      <p>
+        Because it pays you in your own token. The launchpad has a holder fee
+        sharing toggle: flip it and the creator fee recycles into the coin you
+        just bought. It is a good switch, and it is circular — the thing paying
+        you and the thing being paid are the same asset. A chart that bleeds pays
+        you in something that bleeds.
+      </p>
+      <p>
+        BLOCKFARM breaks the circle. The fee leaves the token entirely and comes
+        back as <b>PONS</b>.
+      </p>
+      <div class="verdict">Standard holder fee sharing pays you in your own token · BLOCKFARM pays you in PONS</div>
+    </div>
+  </main>
+
+  <footer>
+    BLOCKFARM is an independent project. It is not operated by, endorsed by, or
+    affiliated with Pons or ponsfamily.com.<br />
+    Nothing here is financial advice. Fee revenue depends entirely on trading
+    volume, which can be zero. Transactions on Robinhood Chain are irreversible.
+  </footer>
+</body>
+</html>
