@@ -5,11 +5,16 @@
    ──────────────────────────────────────────────────────────────────────────── */
 
 :root {
-  --green: #00C805;
-  --deep: #00330D;
+  --green: #00C805;            /* accent mint-green */
+  --bg: #0A1F12;               /* dark forest green — easy on the eyes */
+  --glow: rgba(0, 200, 5, 0.14);
+  --deep: #4ADE80;             /* mint accent for highlights */
   --ink: #ffffff;
   --ink-soft: rgba(255, 255, 255, 0.82);
-  --ink-dim: rgba(255, 255, 255, 0.62);
+  --ink-dim: rgba(255, 255, 255, 0.55);
+  --panel: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.28);
 }
 
 * { box-sizing: border-box; }
@@ -19,9 +24,19 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-  background: var(--green);
+  background: var(--bg);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
+}
+
+.app-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 500px at 50% -10%, var(--glow), transparent 65%),
+    radial-gradient(700px 420px at 100% 110%, rgba(74, 222, 128, 0.08), transparent 60%);
+  z-index: -1;
 }
 
 a { color: inherit; }
@@ -49,7 +64,7 @@ nav a { text-decoration: none; color: var(--ink-soft); }
 nav a:hover { color: #fff; }
 nav .nav-cta {
   margin-left: auto;
-  background: #fff; color: var(--deep);
+  background: #fff; color: #0A1F12;
   font-weight: 700; padding: 9px 18px; border-radius: 999px;
   letter-spacing: 0.04em;
 }
@@ -111,16 +126,16 @@ nav .spacer { margin-left: auto; }
   color: var(--ink-soft);
   flex-wrap: wrap;
 }
-.livebar .dot { width: 9px; height: 9px; border-radius: 50%; background: #fff; box-shadow: 0 0 12px rgba(255,255,255,.9); animation: pulse 2s infinite; }
+.livebar .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--deep); box-shadow: 0 0 12px rgba(74,222,128,.9); animation: pulse 2s infinite; }
 .livebar code {
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
   padding: 5px 11px; border-radius: 8px;
   font-family: 'Space Grotesk', monospace;
   font-size: 12.5px; color: #fff;
   text-decoration: none; cursor: pointer;
 }
-.livebar code:hover { background: rgba(255,255,255,.26); }
+.livebar code:hover { background: rgba(255, 255, 255, 0.12); }
 
 /* ── banner image ────────────────────────────────────────────────────── */
 .banner { max-width: 1100px; margin: 44px auto 0; padding: 0 28px; }
@@ -128,7 +143,8 @@ nav .spacer { margin-left: auto; }
   width: 100%; height: auto;
   border-radius: 18px;
   display: block;
-  box-shadow: 0 22px 60px rgba(0, 40, 10, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 
 .launch-note {
@@ -163,7 +179,7 @@ nav .spacer { margin-left: auto; }
   grid-template-columns: 74px 1fr;
   gap: 18px;
   padding: 26px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-top: 1px solid var(--line);
 }
 .step .num {
   font-size: clamp(26px, 3.4vw, 40px);
@@ -180,8 +196,8 @@ nav .spacer { margin-left: auto; }
   margin-top: 52px;
   padding: 30px 30px 26px;
   border-radius: 20px;
-  background: rgba(0, 51, 13, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
 }
 .whynot h2 { margin: 0 0 10px; font-size: 20px; }
 .whynot p { margin: 0 0 14px; font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); }
@@ -190,7 +206,7 @@ nav .spacer { margin-left: auto; }
   display: inline-block;
   margin-top: 6px;
   font-weight: 700;
-  background: #fff; color: var(--deep);
+  background: #fff; color: #0A1F12;
   padding: 8px 16px; border-radius: 999px;
   font-size: 13.5px;
 }
@@ -198,7 +214,7 @@ nav .spacer { margin-left: auto; }
 /* ── receipts ────────────────────────────────────────────────────────── */
 .block {
   padding: 24px 26px;
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-top: 1px solid var(--line);
 }
 .block h2 { margin: 0 0 14px; font-size: 13px; letter-spacing: 0.18em; color: var(--ink-dim); text-transform: uppercase; }
 .block p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
@@ -213,15 +229,15 @@ nav .spacer { margin-left: auto; }
   margin-top: 30px;
   padding: 26px 28px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
 }
 .status h2 { margin: 0 0 10px; font-size: 20px; }
 .status p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); }
 .status p b { color: #fff; }
 .status .cta {
   display: inline-block; margin-top: 4px;
-  background: #fff; color: var(--deep);
+  background: #fff; color: #0A1F12;
   font-weight: 700; padding: 10px 20px; border-radius: 999px;
   text-decoration: none; font-size: 13.5px;
 }
@@ -232,7 +248,7 @@ footer {
   margin: 0 auto;
   padding: 30px 28px 50px;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--line);
   font-size: 12.5px;
   line-height: 1.7;
   color: var(--ink-dim);
