@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receipts — BLOCKFARM</title>
+  <meta name="description" content="BLOCKFARM on-chain details: token, contracts, status. Everything read off the chain, not estimated." />
+  <link rel="icon" type="image/png" href="assets/blockfarm-logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html">
+      <img src="assets/blockfarm-logo.jpg" alt="BLOCKFARM logo" />
+      BLOCKFARM
+    </a>
+    <a href="mechanism.html">Mechanism</a>
+    <a href="receipts.html">Receipts</a>
+    <span class="spacer"></span>
+    <a class="nav-cta" href="#status">Get $BLOCKFARM</a>
+  </nav>
+
+  <main class="page">
+    <h1>Receipts</h1>
+    <p class="lead">Everything below was read off the chain, not estimated.</p>
+
+    <div class="block">
+      <h2>What you get paid in</h2>
+      <p><b>PONS.</b> A liquid asset with its own market and its own holders — your
+      dividend does not depend on the BLOCKFARM chart.</p>
+    </div>
+
+    <div class="block">
+      <h2>Token</h2>
+      <dl class="kv">
+        <dt>Name</dt><dd>Blockfarm</dd>
+        <dt>Ticker</dt><dd>$BLOCKFARM</dd>
+        <dt>Supply</dt><dd>1,000,000,000</dd>
+        <dt>Chain</dt><dd>Robinhood · 4663</dd>
+        <dt>Creator fee</dt><dd>1% · max 10%</dd>
+        <dt>Recipient</dt><dd>FeeDistributor <small>(published at launch)</small></dd>
+        <dt>Graduation</dt><dd>→ v4 <small>(via ponsfactory)</small></dd>
+      </dl>
+    </div>
+
+    <div class="block">
+      <h2>Contracts it leans on</h2>
+      <dl class="kv">
+        <dt>Launch factory</dt><dd>0x7eD5…EC7e</dd>
+        <dt>Fee escrow</dt><dd>0xd3AF…Ac9e</dd>
+        <dt>Uniswap v4</dt><dd>0x8366…0951</dd>
+        <dt>PONS</dt><dd><a href="https://robinhoodchain.blockscout.com/token/0x39dBED3a2bd333467115dE45665cC57F813C4571" target="_blank" rel="noopener noreferrer">0x39dB…4571 ↗</a></dd>
+        <dt>FeeDistributor</dt><dd><small>published at launch</small></dd>
+      </dl>
+      <p style="margin-top:16px">All verified on-chain. Anyone can launch through this factory — no whitelist, no permission to ask for.</p>
+    </div>
+
+    <div class="status" id="status">
+      <h2>Status</h2>
+      <p><b>Not live yet.</b> There is no contract address here until the token
+      exists — and anything claiming to be $BLOCKFARM before that is not
+      $BLOCKFARM. It will be published here, nowhere else.</p>
+      <p>When live: every trade takes 1%. That fee accrues to the distributor in
+      Pons' escrow, is claimed and swapped into PONS, and goes out to BLOCKFARM
+      holders pro rata. Every claim, swap and transfer is on-chain — you can check
+      the work rather than take our word for it.</p>
+      <a class="cta" href="https://www.ponsfamily.com/launchpad/create" target="_blank" rel="noopener noreferrer">Trade on Pons ↗</a>
+    </div>
+  </main>
+
+  <footer>
+    BLOCKFARM is an independent project. It is not operated by, endorsed by, or
+    affiliated with Pons or ponsfamily.com — it launches through their public
+    factory like anyone else can.<br />
+    Nothing here is financial advice. Fee revenue depends entirely on trading
+    volume, which can be zero. Transactions on Robinhood Chain are irreversible.
+  </footer>
+</body>
+</html>

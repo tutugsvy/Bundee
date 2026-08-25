@@ -1,17 +1,63 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./assets/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="BLOCKFARM — hold to earn fee sharing on Robinhood Chain. 100% of creator fees shared to holders, pro-rata, automatically." />
-    <title>BLOCKFARM · mine · hold · earn on Robinhood Chain</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLOCKFARM · fees buy back PONS, distributed to holders</title>
+  <meta name="description" content="BLOCKFARM — fees buy back PONS. Distributed to BLOCKFARM holders pro-rata. Launched through Pons on Robinhood Chain." />
+  <link rel="icon" type="image/png" href="assets/blockfarm-logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html">
+      <img src="assets/blockfarm-logo.jpg" alt="BLOCKFARM logo" />
+      BLOCKFARM
+    </a>
+    <a href="mechanism.html">Mechanism</a>
+    <a href="receipts.html">Receipts</a>
+    <span class="spacer"></span>
+    <a class="nav-cta" href="receipts.html#status">Get $BLOCKFARM</a>
+  </nav>
+
+  <main class="hero">
+    <h1>Fees buy back <em>PONS</em>.<br />BLOCKFARM holders get it all.</h1>
+    <p class="sub">
+      Every BLOCKFARM trade pays a fee. That fee buys PONS back — and it is
+      distributed to BLOCKFARM holders, pro-rata, automatically.
+    </p>
+
+    <div class="stats">
+      <div class="stat"><span class="v" id="st-price">—</span><span class="l">PONS</span></div>
+      <div class="stat"><span class="v" id="st-mcap">—</span><span class="l">MARKET CAP</span></div>
+      <div class="stat"><span class="v" id="st-holders">—</span><span class="l">HOLDERS</span></div>
+      <div class="stat"><span class="v" id="st-vol">—</span><span class="l">24H VOLUME</span></div>
+    </div>
+
+    <div class="livebar">
+      <span class="dot"></span>
+      <span>Live ·</span>
+      <code id="ca">distributor address at launch</code>
+    </div>
+  </main>
+
+  <div class="banner">
+    <img src="assets/blockfarm-banner.jpg" alt="BLOCKFARM" />
+  </div>
+
+  <p class="launch-note">Launched through Pons · Robinhood Chain</p>
+
+  <footer>
+    BLOCKFARM is an independent project. It is not operated by, endorsed by, or
+    affiliated with Pons or ponsfamily.com — it launches through their public
+    factory like anyone else can.<br />
+    Nothing here is financial advice. Fee revenue depends entirely on trading
+    volume, which can be zero. Transactions on Robinhood Chain are irreversible.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
 </html>

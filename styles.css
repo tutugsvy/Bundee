@@ -1,0 +1,253 @@
+/* ────────────────────────────────────────────────────────────────────────────
+   BLOCKFARM — fees buy back PONS, distributed to BLOCKFARM holders.
+   Simple landing inspired by ponsdividends.family.
+   Palette: Robinhood green #00C805 · white · deep green #00330D
+   ──────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --green: #00C805;
+  --deep: #00330D;
+  --ink: #ffffff;
+  --ink-soft: rgba(255, 255, 255, 0.82);
+  --ink-dim: rgba(255, 255, 255, 0.62);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--green);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+/* ── nav ─────────────────────────────────────────────────────────────── */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 18px 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-size: 14.5px;
+  letter-spacing: 0.02em;
+}
+nav .brand {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; letter-spacing: 0.06em;
+  text-decoration: none; margin-right: 8px;
+}
+nav .brand img {
+  width: 34px; height: 34px; border-radius: 9px; object-fit: cover;
+}
+nav a { text-decoration: none; color: var(--ink-soft); }
+nav a:hover { color: #fff; }
+nav .nav-cta {
+  margin-left: auto;
+  background: #fff; color: var(--deep);
+  font-weight: 700; padding: 9px 18px; border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+nav .nav-cta:hover { color: var(--deep); transform: translateY(-1px); }
+nav .spacer { margin-left: auto; }
+
+/* ── hero ────────────────────────────────────────────────────────────── */
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 28px 30px;
+  text-align: center;
+}
+.hero h1 {
+  margin: 0;
+  font-size: clamp(38px, 6.4vw, 78px);
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.hero h1 em { font-style: normal; color: var(--deep); }
+.hero .sub {
+  margin: 22px auto 0;
+  max-width: 44ch;
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* ── stats ───────────────────────────────────────────────────────────── */
+.stats {
+  max-width: 900px;
+  margin: 46px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 0 28px;
+}
+.stat { text-align: center; }
+.stat .v {
+  display: block;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.stat .l {
+  display: block;
+  margin-top: 6px;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--ink-dim);
+}
+
+/* ── live bar ────────────────────────────────────────────────────────── */
+.livebar {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin: 40px auto 0;
+  font-size: 13px; letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  flex-wrap: wrap;
+}
+.livebar .dot { width: 9px; height: 9px; border-radius: 50%; background: #fff; box-shadow: 0 0 12px rgba(255,255,255,.9); animation: pulse 2s infinite; }
+.livebar code {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5px 11px; border-radius: 8px;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 12.5px; color: #fff;
+  text-decoration: none; cursor: pointer;
+}
+.livebar code:hover { background: rgba(255,255,255,.26); }
+
+/* ── banner image ────────────────────────────────────────────────────── */
+.banner { max-width: 1100px; margin: 44px auto 0; padding: 0 28px; }
+.banner img {
+  width: 100%; height: auto;
+  border-radius: 18px;
+  display: block;
+  box-shadow: 0 22px 60px rgba(0, 40, 10, 0.35);
+}
+
+.launch-note {
+  text-align: center;
+  margin: 26px auto 70px;
+  font-size: 13px; letter-spacing: 0.04em;
+  color: var(--ink-dim);
+}
+
+/* ── page shell (mechanism / receipts) ───────────────────────────────── */
+.page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 50px 28px 90px;
+}
+.page h1 {
+  margin: 0 0 8px;
+  font-size: clamp(30px, 4.6vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.page .lead {
+  margin: 0 0 44px;
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* ── mechanism steps ─────────────────────────────────────────────────── */
+.step {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 18px;
+  padding: 26px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+.step .num {
+  font-size: clamp(26px, 3.4vw, 40px);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: -0.02em;
+}
+.step h2 { margin: 2px 0 8px; font-size: clamp(17px, 2.2vw, 21px); letter-spacing: 0.01em; }
+.step p { margin: 0; font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); }
+.step p b { color: #fff; }
+
+/* ── why-not box ─────────────────────────────────────────────────────── */
+.whynot {
+  margin-top: 52px;
+  padding: 30px 30px 26px;
+  border-radius: 20px;
+  background: rgba(0, 51, 13, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+}
+.whynot h2 { margin: 0 0 10px; font-size: 20px; }
+.whynot p { margin: 0 0 14px; font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); }
+.whynot p b { color: #fff; }
+.whynot .verdict {
+  display: inline-block;
+  margin-top: 6px;
+  font-weight: 700;
+  background: #fff; color: var(--deep);
+  padding: 8px 16px; border-radius: 999px;
+  font-size: 13.5px;
+}
+
+/* ── receipts ────────────────────────────────────────────────────────── */
+.block {
+  padding: 24px 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+.block h2 { margin: 0 0 14px; font-size: 13px; letter-spacing: 0.18em; color: var(--ink-dim); text-transform: uppercase; }
+.block p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
+.block p b { color: #fff; }
+.kv { display: grid; grid-template-columns: 150px 1fr; gap: 8px 16px; font-size: 14.5px; }
+.kv dt { color: var(--ink-dim); letter-spacing: 0.04em; }
+.kv dd { margin: 0; font-weight: 600; }
+.kv dd a { text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,.5); }
+.kv dd small { color: var(--ink-dim); font-weight: 400; }
+
+.status {
+  margin-top: 30px;
+  padding: 26px 28px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.status h2 { margin: 0 0 10px; font-size: 20px; }
+.status p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); }
+.status p b { color: #fff; }
+.status .cta {
+  display: inline-block; margin-top: 4px;
+  background: #fff; color: var(--deep);
+  font-weight: 700; padding: 10px 20px; border-radius: 999px;
+  text-decoration: none; font-size: 13.5px;
+}
+
+/* ── footer ──────────────────────────────────────────────────────────── */
+footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 28px 50px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--ink-dim);
+}
+
+/* ── animation ───────────────────────────────────────────────────────── */
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+/* ── responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  nav { padding: 14px 18px; gap: 14px; font-size: 13.5px; }
+  nav .nav-cta { padding: 8px 14px; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 22px 10px; }
+  .hero { padding-top: 40px; }
+  .step { grid-template-columns: 1fr; gap: 6px; }
+  .kv { grid-template-columns: 1fr; gap: 3px; }
+  .page { padding-top: 34px; }
+}
