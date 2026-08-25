@@ -257,6 +257,46 @@ footer {
 /* ── animation ───────────────────────────────────────────────────────── */
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 
+/* ── buy section ────────────────────────────────────────────────────── */
+.buy { max-width: 780px; margin: 46px auto 0; padding: 0 28px; }
+.buy-card {
+  display: flex; align-items: center; gap: 30px;
+  padding: 30px 32px; border-radius: 20px;
+  background: var(--panel); border: 1px solid var(--line-strong);
+}
+.buy-info { flex: 1; }
+.buy-info h2 { margin: 0 0 6px; font-size: clamp(20px, 2.6vw, 28px); letter-spacing: -0.01em; }
+.buy-info h2 span { color: var(--deep); }
+.buy-sub { margin: 0 0 18px; font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
+.buy-sub b { color: #fff; }
+.buy-ca { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.buy-ca-label { font-size: 10px; letter-spacing: 0.18em; color: var(--ink-dim); text-transform: uppercase; }
+.buy-ca code {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 12.5px; color: #fff;
+  background: rgba(0, 0, 0, 0.3); border: 1px solid var(--line);
+  padding: 6px 12px; border-radius: 8px;
+}
+.buy-ca button {
+  background: none; border: 1px solid var(--line-strong);
+  color: var(--ink-soft); font-family: inherit;
+  font-size: 11px; padding: 5px 12px; border-radius: 6px;
+  cursor: pointer; white-space: nowrap;
+}
+.buy-ca button:hover { background: rgba(255,255,255,0.08); }
+.buy-dist { margin: 10px 0 0; font-size: 12px; color: var(--ink-dim); }
+.buy-dist code { font-size: 11.5px; color: var(--ink-soft); background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 5px; }
+.buy-btn {
+  flex: 0 0 auto;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--deep); color: #0A1F12;
+  font-weight: 700; font-size: 15px; letter-spacing: 0.04em;
+  padding: 16px 28px; border-radius: 999px;
+  text-decoration: none; white-space: nowrap;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.buy-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(74, 222, 128, 0.3); }
+
 /* ── responsive ──────────────────────────────────────────────────────── */
 @media (max-width: 720px) {
   nav { padding: 14px 18px; gap: 14px; font-size: 13.5px; }
@@ -266,4 +306,7 @@ footer {
   .step { grid-template-columns: 1fr; gap: 6px; }
   .kv { grid-template-columns: 1fr; gap: 3px; }
   .page { padding-top: 34px; }
+  .buy-card { flex-direction: column; align-items: stretch; text-align: center; padding: 26px 22px; }
+  .buy-ca { justify-content: center; }
+  .buy-btn { justify-content: center; }
 }
