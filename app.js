@@ -74,7 +74,7 @@ function renderCA() {
     btn.textContent = 'BUY $BLOCKFARM ↗';
   } else {
     caEl.textContent = '0x… published at launch';
-    btn.href = 'https://www.ponsfamily.com/launchpad/create';
+    btn.href = 'https://www.ponsfamily.com/launchpad/0x5131F946C67110d3d0f1F211FC70dB33FF6eecf0';
     btn.textContent = 'BUY NOW ↗';
   }
 
