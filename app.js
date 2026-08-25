@@ -5,8 +5,9 @@
 
 // ─── CONFIG — isi setelah launch BLOCKFARM di ponsfamily ───────────────────
 const CONFIG = {
-  BLOCKFARM_CA: null,     // ← isi CA token setelah launch (mis. '0x...')
+  BLOCKFARM_CA: '0x5131F946C67110d3d0f1F211FC70dB33FF6eecf0',
   DISTRIBUTOR_CA: null,   // ← isi CA FeeDistributor setelah deploy
+  BUY_URL: 'https://www.ponsfamily.com/launchpad/0x5131F946C67110d3d0f1F211FC70dB33FF6eecf0',
   PONS_CA: '0x39dBED3a2bd333467115dE45665cC57F813C4571',
 };
 
@@ -69,7 +70,7 @@ function renderCA() {
 
   if (CONFIG.BLOCKFARM_CA) {
     caEl.textContent = CONFIG.BLOCKFARM_CA;
-    btn.href = 'https://www.ponsfamily.com/token/' + CONFIG.BLOCKFARM_CA;
+    btn.href = CONFIG.BUY_URL || ('https://www.ponsfamily.com/token/' + CONFIG.BLOCKFARM_CA);
     btn.textContent = 'BUY $BLOCKFARM ↗';
   } else {
     caEl.textContent = '0x… published at launch';
